@@ -21,4 +21,31 @@ function atualizarSelect() {
     }
 }
 
-atualizarSelect()
+// função que preenche o endereço atraves do CEP
+(function(){ 
+ 
+    const cep = document.querySelector("#cep");
+ 
+    cep.addEventListener('blur', e=> {
+         const value = cep.value.replace(/[^0-9]+/, '');
+         const url = `https://viacep.com.br/ws/${value}/json/`;
+ 
+       fetch(url)
+      .then( response => response.json())
+      .then( json => {
+                 
+          if( json.logradouro ) {
+            document.querySelector('input[id=endereco]').value = json.logradouro;
+            document.querySelector('input[id=cidade]').value = json.localidade;
+            document.querySelector('input[id=estado]').value = json.uf;
+
+            document.querySelector('input[id=endereco]').disabled = true;
+            document.querySelector('input[id=cidade]').disabled = true;
+            document.querySelector('input[id=estado]').disabled = true;
+          }
+         
+       
+      });
+   });
+ 
+ })();
