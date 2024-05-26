@@ -26,61 +26,134 @@
                 <img src="../imgs/icons8-van-50.png" alt="Logo" id="logo" class="mb-3 mt-3" width="72" height="72">
                 <h1 class="h3 mb-3 fw-normal">Cadastrar Conta</h1>
                 <div class="form-floating mb-3">
-                    <input type="String" class="form-control" id="floatingInput" placeholder="">
-                    <label for="floatingInput">Nome Completo</label>
+                    <input type="String" class="form-control" id="nome" placeholder="">
+                    <label for="nome">Nome Completo</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="date" class="form-control" id="floatingInput" placeholder="">
-                    <label for="floatingInput">Data de Nascimento</label>
+                    <input type="date" class="form-control" id="dataNascimento" placeholder="">
+                    <label for="dataNascimento">Data de Nascimento</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="tel" class="form-control" id="floatingInput" placeholder="(15) 99999-9999">
-                    <label for="floatingInput">Número do celular</label>
+                    <input type="tel" class="form-control" id="celular" placeholder="(15) 99999-9999">
+                    <label for="celular">Número do celular</label>
                 </div>
                 <div class="row g-2">
                     <div class="form-floating mb-2 col-sm-8">
-                        <input type="String" class="form-control" id="floatingInput" placeholder="">
-                        <label for="floatingInput">Endereço</label>
+                        <input type="String" class="form-control" id="endereco" placeholder="">
+                        <label for="endereco">Endereço</label>
                     </div>
                     <div class="form-floating mb-2 col-sm">
-                        <input type="String" class="form-control" id="floatingInput" placeholder="">
-                        <label for="floatingInput">Número</label>
+                        <input type="String" class="form-control" id="numero" placeholder="">
+                        <label for="numero">Número</label>
                     </div>
                 </div>
                 <div class="row g-2">
                     <div class="form-floating mb-3 col-sm-4">
-                        <input type="String" class="form-control" id="floatingInput" placeholder="">
-                        <label for="floatingInput">CEP</label>
+                        <input type="String" class="form-control" id="cep" placeholder="">
+                        <label for="cep">CEP</label>
                     </div>
                     <div class="form-floating mb-3 col-sm-5">
-                        <input type="String" class="form-control" id="floatingInput" placeholder="">
-                        <label for="floatingInput">Cidade</label>
+                        <input type="String" class="form-control" id="cidade" placeholder="">
+                        <label for="cidade">Cidade</label>
                     </div>
                     <div class="form-floating mb-3 col-sm">
-                        <input type="String" class="form-control" id="floatingInput" placeholder="">
-                        <label for="floatingInput">Estado</label>
+                        <input type="String" class="form-control" id="estado" placeholder="">
+                        <label for="estado">Estado</label>
                     </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">E-mail</label>
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                    <label for="email">E-mail</label>
                 </div>
                 <div class="form-floating mb-2">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Senha</label>
+                    <input type="password" class="form-control" id="senha" placeholder="Password">
+                    <label for="senha">Senha</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Confirmar Senha</label>
+                    <input type="password" class="form-control" id="confirmarSenha" placeholder="Password">
+                    <label for="confirmarSenha">Confirmar Senha</label>
                 </div>
                 <div class="col-12">
-                    <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
-                    <select class="form-select" id="inlineFormSelectPref">
-                        <option selected>Eu sou...</option>
-                        <option value="1">Motorista</option>
-                        <option value="2">Aluno</option>
+                    <label class="visually-hidden" for="categoriaUsuario">Preference</label>
+                    <select itemid="selectUsuario" class="form-select mb-3" id="categoriaUsuario" onChange="atualizarSelect()">
+                        <option value="0" selected>Eu sou...</option>
+                        <option value="1">Aluno</option>
+                        <option value="2">Motorista</option>
                     </select>
                 </div>
+<!---------------------------------------------------Cadastro Aluno----------------------------------------------->
+                <div id="cadastroAluno" style="display: none">
+                    <div class="col-12 mb-3">
+                        <label class="visually-hidden" for="periodoAula">Preference</label>
+                        <select class="form-select" id="periodoAula">
+                            <option selected>Periodo de aulas</option>
+                            <option value="1">Manhã</option>
+                            <option value="2">Tarde</option>
+                            <option value="3">Noite</option>
+                        </select>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="String" class="form-control" id="instituicaoDeEnsino" placeholder="">
+                        <label for="instituicaoDeEnsino">Instituição de Ensino</label>
+                    </div>
+                    <div class="cronograma">
+                        <h5>
+                            Dias de aula:
+                        </h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="1" id="segunda">
+                            <label class="form-check-label" for="segunda">
+                              Segunda-feira
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="2" id="terca">
+                            <label class="form-check-label" for="terca">
+                              Terça-feira
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="3" id="quarta">
+                            <label class="form-check-label" for="quarta">
+                              Quarta-feira
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="4" id="quinta">
+                            <label class="form-check-label" for="quinta">
+                              Quinta-feira
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="5" id="sexta">
+                            <label class="form-check-label" for="sexta">
+                              Sexta-feira
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="6" id="sabado">
+                            <label class="form-check-label" for="sabado">
+                              Sábado
+                            </label>
+                          </div>
+                    </div>
+                </div>
+<!-------------------------------------------------Cadastro Motorista---------------------------------------------->
+                <div id="cadastroMotorista" style="display: none;">
+                    <div class="form-floating mb-3">
+                        <input type="String" class="form-control" id="numeroCnh" placeholder="">
+                        <label for="numeroCnh">Numero da CNH</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="String" class="form-control" id="categoriaCnh" placeholder="">
+                        <label for="categoriaCnh">Categoria da CNH</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" id="validadeCnh" placeholder="">
+                        <label for="validadeCnh">Validade da CNH</label>
+                    </div>
+                </div>
+<!------------------------------------------------------------------------------------------------------------------>
                 <div class="checkbox mb-3 mt-2">
                     <input type="checkbox" name="check" id="check">
                     <label for="check">Lembrar de mim</label>
@@ -93,11 +166,6 @@
             </a>
         </div>
     </div>
+    <script src="../script.js"></script>
 </body>
-
 </html>
-<script>
-    function mudarPag() {
-        window.location.replace("http://127.0.0.1:5500/tela_aluno.html")
-    }
-</script>
